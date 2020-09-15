@@ -30,13 +30,13 @@
     font-size: 7.9rem;
     font-weight: 300;
     line-height: 1.28;
-    width: 68%;
+    width: 110%;
     color: var(--white);
     margin-top: -2rem;
 
-    @media only screen and (max-width: 825px) {
-      width: 87%;
-    }
+    // @media only screen and (max-width: 825px) {
+    //   width: 87%;
+    // }
     
     @media only screen and (max-width: 400px) {
       font-size: 6.3rem;

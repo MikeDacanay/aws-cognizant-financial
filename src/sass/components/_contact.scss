@@ -23,9 +23,10 @@
   }
   &__header {
     font-size: 2.4rem;
-    font-weight: bold;
+    font-family: AmazonEmberBold;
   }
   &__text {
+    font-family: AmazonEmberReg;
     line-height: 1.52;
     font-size: 2.1rem;
   }
@@ -40,8 +41,7 @@
   &__btn {
     background-color: orange;
     padding: 0.5rem 6rem;
-    font-family: AmazonEmber;
-    font-weight: bold;
+    font-family: AmazonEmberBold;
     font-size: 1.5rem;
     color: black;
     text-decoration: none;

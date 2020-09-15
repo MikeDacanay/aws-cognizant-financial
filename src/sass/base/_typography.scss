@@ -1,22 +1,20 @@
 @font-face {
-  font-family: AmazonEmber;
+  font-family: AmazonEmberReg;
   src: url("../../fonts/AmazonEmber_Rg.ttf");
-  font-weight: normal;
 }
 @font-face {
   font-family: AmazonEmberLT;
   src: url("../../fonts/AmazonEmber_Lt.ttf");
 }
 @font-face {
-  font-family: AmazonEmber;
+  font-family: AmazonEmberBold;
   src: url("../../fonts/AmazonEmber_Bd.ttf");
-  font-weight: bold;
 }
 
 .header {
   &__primary {
     @include SectionHeadline;
-    width: 67%;
+    // width: 67%;
     font-size: 4.8rem;
 
     @media only screen and (max-width: 1024px) {
@@ -69,7 +67,6 @@ a {
 }
 
 .bold{
-  font-family: AmazonEmber;
-  font-weight: bold;
+  font-family: AmazonEmberBold;
 }
 

@@ -43,8 +43,7 @@
     top: calc(26% + 5.1rem);
     left: 50%;
     transform: translate(-50%, -50%);
-    font-family: AmazonEmber;
-    font-weight: bold;
+    font-family: AmazonEmberBold;
     font-stretch: normal;
     font-style: normal;
     text-align: center;
@@ -71,7 +70,7 @@
     text-align: center;
     color: #ffffff;
     letter-spacing: 0.6px;
-    width: 80%;
+    // width: 80%;
     margin: 0 auto;
     margin-bottom: 2rem;
 
@@ -83,7 +82,7 @@
     }
   }
   &__sub {
-    font-weight: normal;
+    font-family: AmazonEmberReg;
     font-size: 3.6rem;
 
     letter-spacing: 0.3px;

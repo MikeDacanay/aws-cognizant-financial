@@ -317,18 +317,19 @@ section2TL1.from('.section2__section .pg', {
   stagger: .25
 }, '-=.5')
 
-const section2Img1 = gsap.timeline({
-  scrollTrigger: {
-    trigger: '.section2__img',
-    start: 'top 70%',
-    toggleActions: 'play none none reverse'
-  },
-})
-section2Img1.from(".section2__img", {
-  opacity: 0,
-  duration: 1,
-  x: '20%',
-})
+// const section2Img1 = gsap.timeline({
+//   scrollTrigger: {
+//     trigger: '.section2__img',
+//     start: 'top 70%',
+//     toggleActions: 'play none none reverse'
+//   },
+// })
+// section2Img1.from(".section2__img", {
+//   opacity: 0,
+//   duration: 1,
+//   x: '20%',
+//   y: '-50%'
+// })
 
 const section2List1 = gsap.timeline({
   scrollTrigger: {

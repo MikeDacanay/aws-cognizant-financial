@@ -6,12 +6,12 @@ module.exports = {
   mode: 'development',
   entry: './src/js/index.js',
   output: {
-    path: path.join(__dirname, 'deloitte-financial'),
+    path: path.join(__dirname, 'cognizant-financial'),
     filename: 'js/bundle.js'
   },
   devServer: {
-    contentBase: path.join(__dirname, 'deloitte-financial'),
-    port: 3000
+    contentBase: path.join(__dirname, 'cognizant-financial'),
+    port: 4000
   },
   plugins: [
     new HtmlWebpackPlugin({
