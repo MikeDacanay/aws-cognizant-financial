@@ -19,12 +19,14 @@ const indicator3 = $('#indicator-3');
 const indicator4 = $('#indicator-4');
 const indicator5 = $('#indicator-5');
 const indicator6 = $('#indicator-6');
+const indicator7 = $('#indicator-7');
 indicator1.click(() => gsapScroll('#header'))
 indicator2.click(() => gsapScroll('.intro__section'))
-indicator3.click(() => gsapScroll('.section2__section'))
-indicator4.click(() => gsapScroll('.section4__section'))
-indicator5.click(() => gsapScroll('.section6__section'))
-indicator6.click(() => gsapScroll('.solutions__section'));
+indicator3.click(() => gsapScroll('.section1__section'))
+indicator4.click(() => gsapScroll('.section2__section'))
+indicator5.click(() => gsapScroll('.section4__section'))
+indicator6.click(() => gsapScroll('#solutions--start'));
+indicator7.click(() => gsapScrollHigher('#solutions--2'));
 
 $('.nav__title--1').click(() => {
   gsapScroll('.intro__section');
@@ -35,15 +37,15 @@ $('.nav__title--2').click(() => {
   navFunc()
 })
 $('.nav__item--aws--1').click(() => {
-  gsapScroll('.section2__section');
+  gsapScroll('.section1__section');
   navFunc()
 })
 $('.nav__item--aws--2').click(() => {
-  gsapScroll('.section4__section');
+  gsapScroll('.section2__section');
   navFunc()
 })
 $('.nav__item--aws--3').click(() => {
-  gsapScroll('.section6__section');
+  gsapScroll('.section4__section');
   navFunc()
 });
 $('.nav__item--aws--4').click(() => {
@@ -73,25 +75,25 @@ $('.nav__sub-item-3').click(() => {
   navFunc()
 });
 $('.nav__sub-item-4').click(() => {
+  gsapScrollHigher('#solutions--1-4');
+  navFunc()
+});
+$('.nav__sub-item-5').click(() => {
+  gsapScrollHigher('#solutions--2-1');
+  navFunc()
+});
+$('.nav__sub-item-6').click(() => {
+  gsapScrollHigher('#solutions--2-2');
+  navFunc()
+});
+$('.nav__sub-item-7').click(() => {
+  gsapScrollHigher('#solutions--2-3');
+  navFunc()
+});
+$('.nav__sub-item-8').click(() => {
   gsapScrollHigher('#solutions--2-4');
   navFunc()
 });
-// $('.nav__sub-item-5').click(() => {
-//   gsapScrollHigher('#solutions--2-1');
-//   navFunc()
-// });
-// $('.nav__sub-item-6').click(() => {
-//   gsapScrollHigher('#solutions--2-2');
-//   navFunc()
-// });
-// $('.nav__sub-item-7').click(() => {
-//   gsapScrollHigher('#solutions--2-3');
-//   navFunc()
-// });
-// $('.nav__sub-item-8').click(() => {
-//   gsapScrollHigher('#solutions--2-4');
-//   navFunc()
-// });
 
 function navFunc() {
   if ($(window).width() >= 1024) {
@@ -121,29 +123,34 @@ function gsapScrollHigher(id) {
   })
 }
 
-gsapColorSection(indicator1, '#header', '.video__section')
-gsapColorSection(indicator2, '.intro__section','.section1__section')
-gsapColorSection(indicator3, '.section2__section', '.section3__section')
-gsapColorSection(indicator4, '.section4__section', '.section5__section')
-gsapColorSection(indicator5, '.section6__section')
-gsapColorSection(indicator6, '.solutions__section', '.contact__selection')
-// gsapColorSection(indicator7, '.section5__section')
-// gsapColorSection(indicator8, '.section6__section')
-// gsapColorSection(indicator9, '#solutions--start')
-// gsapColorSection(indicator7, '#solutions--start', '#solutions--1-4')
-// gsapColorSection(indicator8, '#solutions--2', '#solutions--2-4')
+gsapColorSection(indicator1, '#header', '.video__section');
+gsapColorSection(indicator2, '.intro__section', '.intro__section');
+gsapColorSection(indicator3, '.section1__section', '.section1__section');
+gsapColorSection(indicator4, '.section2__section', '.section3__section');
+gsapColorSection(indicator5, '.section4__section', '.section4__section');
+gsapColorSection(indicator6, '#solutions--start', '#solutions--1-4')
+gsapColorSection(indicator7, '#solutions--2', '.footer__container')
+
 
 // ------------- Arrow functions ------------- 
 $('.sidebar-nav__navigation--prev').click(() => gsapScroll('.arrow-prev'))
-$('.sidebar-nav__navigation--next').click(() => gsapScroll('.arrow-next'))
+// $('.sidebar-nav__navigation--next').click(() => gsapScroll('.arrow-next'));
+$('.sidebar-nav__navigation--next').click(() => {
+  // console.log($('.arrow-next').hasClass('solutions__flex'));
+  // gsapScroll('.arrow-next')
+
+  $('.arrow-next').hasClass('solutions__flex') ? 
+    gsapScrollHigher('.arrow-next') :
+    gsapScroll('.arrow-next');
+
+});
 
 // $('.sidebar-nav__arrowDown').click(() => { gsapScroll('.intro__section') })
 var position = 1
 function gsapColorSection(indicator, sectionIdentifier, endSection) {
   gsap.to(
     indicator, {
-    scrollTrigger: {
-
+    scrollTrigger: {      
       trigger: sectionIdentifier,
       endTrigger: endSection,
       start: "top 20%",
@@ -159,28 +166,30 @@ function gsapColorSection(indicator, sectionIdentifier, endSection) {
           } else if (self.vars.trigger === '.intro__section') {
             $('.anchor').removeClass('arrow-next arrow-prev');
             $('#header').addClass('arrow-prev');
-            $('.section2__section').addClass('arrow-next')
-          } else if (self.vars.trigger === '.section2__section') {
+            $('.section1__section').addClass('arrow-next')
+          } else if (self.vars.trigger === '.section1__section') {
             $('.anchor').removeClass('arrow-next arrow-prev');
             $('.intro__section').addClass('arrow-prev')
+            $('.section2__section').addClass('arrow-next')
+
+          } else if (self.vars.trigger === '.section2__section') {
+            $('.anchor').removeClass('arrow-next arrow-prev');
+            $('.section1__section').addClass('arrow-prev');
             $('.section4__section').addClass('arrow-next')
 
           } else if (self.vars.trigger === '.section4__section') {
             $('.anchor').removeClass('arrow-next arrow-prev');
             $('.section2__section').addClass('arrow-prev');
-            $('.section6__section').addClass('arrow-next')
+            $('.solutions__section').addClass('arrow-next');
 
-          } else if (self.vars.trigger === '.section6__section') {
+          } else if (self.vars.trigger === '#solutions--start') {            
             $('.anchor').removeClass('arrow-next arrow-prev');
             $('.section4__section').addClass('arrow-prev');
-            $('#solutions--start').addClass('arrow-next')
-
-          } else if (self.vars.trigger === '.solutions__section') {
+            $('#solutions--2').addClass('arrow-next');
+          }else if (self.vars.trigger === '#solutions--2') {
             $('.anchor').removeClass('arrow-next arrow-prev');
-            $('.section6__section').addClass('arrow-prev');
-            // $('#solutions--2').addClass('arrow-next')
-
-          }
+            $('.solutions__section').addClass('arrow-prev');
+          }          
 
         }
       }
@@ -297,61 +306,85 @@ whyTl.from('.intro__text', {
 }, '-=.5')
 
 // ----------------------------------------------------------------
-// Animate Section 2
+// Animate Section 1
 // ----------------------------------------------------------------
 
-const section2TL1 = gsap.timeline({
+const section1TL1 = gsap.timeline({
   scrollTrigger: {
-    trigger: '.section2__section',
+    trigger: '.section1__section',
     start: 'top 70%'
   },
 })
-section2TL1.from('.section2__section .header__secondary', {
+section1TL1.from('.section1__section .header__secondary', {
   opacity: 0,
   x: '-20%',
   duration: 1
 })
-section2TL1.from('.section2__section .pg', {
+section1TL1.from('.section1__section .pg', {
   opacity: 0,
   duration: 1,
   stagger: .25
 }, '-=.5')
 
-// const section2Img1 = gsap.timeline({
-//   scrollTrigger: {
-//     trigger: '.section2__img',
-//     start: 'top 70%',
-//     toggleActions: 'play none none reverse'
-//   },
-// })
-// section2Img1.from(".section2__img", {
-//   opacity: 0,
-//   duration: 1,
-//   x: '20%',
-//   y: '-50%'
-// })
-
-const section2List1 = gsap.timeline({
+// Main Animation
+const section1TL2 = gsap.timeline({
   scrollTrigger: {
-    trigger: '.section2__list',
+    trigger: '.section1__box',
     start: 'top 70%',
     toggleActions: 'play none none reverse'
   },
 })
-
-section2List1.from('.section2__item', {
+section1TL2.from(".section1__img", {
+  opacity: 0,
+  // drawSVG: '0%',
+  duration: 1,
+})
+section1TL2.from('.section1__item', {
   x: '-10%',
   stagger: .3,
   opacity: 0,
   duration: 1,
 }, '-=.75')
-section2List1.from('.section2__item img', {
+section1TL2.from('.section1__item img', {
   rotate: '-180',
   stagger: .3,
   opacity: 0,
   duration: 1.5,
 }, '<')
 
+
+// ----------------------------------------------------------------
+// Animate Section 2
+// ----------------------------------------------------------------
+
+const secondSectionTL = gsap.timeline({
+  scrollTrigger: {    
+    trigger: '.section2__section',
+    start: 'top 70%'
+  },
+})
+secondSectionTL.from('.section2__header', {
+  opacity: 0,
+  x: '-20%',
+  duration: 1
+})
+secondSectionTL.from('.section2__section .pg', {
+  opacity: 0,
+  duration: 1,
+  stagger: .25
+}, '-=.5')
+
+gsap.from('.section2__img', {
+  duration: 1.5,
+  opacity: 0,
+  x: 100,
+  ease: 'none',
+  scrollTrigger: {    
+    trigger: '.section2__img',
+    start: 'top 70%',
+    toggleActions: 'play none none reverse'
+  }
+})
 
 // ----------------------------------------------------------------
 // Animate Quote Section
@@ -453,12 +486,17 @@ section6Img1.from(".section6__img", {
 // ----------------------------------------------------------------
 
 const partnerFirst = gsap.timeline({
-  scrollTrigger: {
+  scrollTrigger: {  
     trigger: '#solutions--1',
     start: 'top 70%',
     // toggleActions: 'restart none none reverse',
   },
   ease: "power3.out",
+})
+partnerFirst.from('.solutions__num-1', {
+  opacity: 0,
+  x: '-100',
+  duration: .5
 })
 partnerFirst.from('#solutions--1 .solutions__sub', {
   x: '10%',
@@ -470,30 +508,33 @@ partnerFirst.from('#solutions--1 .pg', {
   duration: .75,
 }, '-=.1')
 
-// const partnerSecond = gsap.timeline({
-//   scrollTrigger: {
-//  
-//     trigger: '#solutions--2.solutions__flex',
-//     start: 'top 70%',
-//     // toggleActions: 'restart none none reverse',
-//     // markers: true
-//   },
-//   ease: "power3.out",
-// })
-// partnerSecond.from('.solutions__num-2', {
-//   opacity: 0,
-//   x: '-100',
-//   duration: .5
-// })
-// partnerSecond.from('#solutions--2 .solutions__sub', {
-//   x: '10%',
-//   opacity: 0,
-//   duration: .5,
-// }, '-=.25')
-// partnerSecond.from('#solutions--2  p', {
-//   opacity: 0,
-//   duration: .75,
-// }, '-=.1')
+// ----------------------------------------------------------------
+// Animate Second Section Intro of Partner
+// ----------------------------------------------------------------
+
+const partnerSecond = gsap.timeline({
+  scrollTrigger: {    
+    trigger: '#solutions--2',
+    start: 'top 70%',
+    // toggleActions: 'restart none none reverse',
+  },
+  ease: "power3.out",
+})
+partnerSecond.from('.solutions__num-2', {
+  opacity: 0,
+  x: '-100',
+  duration: .5
+})
+partnerSecond.from('#solutions--2 .solutions__sub', {
+  x: '10%',
+  opacity: 0,
+  duration: .5,
+}, '-=.25')
+partnerSecond.from('#solutions--2 .pg', {
+  opacity: 0,
+  duration: .75,
+}, '-=.1')
+
 
 // ----------------------------------------------------------------
 // Animate Features-box Intro of Partner
@@ -528,8 +569,8 @@ const featureBoxAnimation = (featureBoxId) => {
 
 featureBoxAnimation('#solutions--1-1');
 featureBoxAnimation('#solutions--1-2');
-// featureBoxAnimation('#solutions--2-1');
-// featureBoxAnimation('#solutions--2-2');
+featureBoxAnimation('#solutions--2-1');
+featureBoxAnimation('#solutions--2-2');
 
 // ----------------------------------------------------------------
 // Animate Features-box Intro of Partner
@@ -562,10 +603,10 @@ const ctaAnimation = (ctaId) => {
   }, '<')
 }
 
-ctaAnimation('#solutions--1-3')
+ctaAnimation('#solutions--1-3');
+ctaAnimation('#solutions--1-4');
+ctaAnimation('#solutions--2-3')
 ctaAnimation('#solutions--2-4')
-// ctaAnimation('#solutions--2-3')
-// ctaAnimation('#solutions--2-4')
 
 
 // ----------------------------------------------------------------
@@ -593,15 +634,15 @@ ScrollTrigger.defaults({
 
 // AWS Section
 ScrollTrigger.create({
-  trigger: '.section2__section',
+  trigger: '.section1__section',
   toggleClass: { targets: '.nav__item--1', className: 'active' },
 })
 ScrollTrigger.create({
-  trigger: '.section4__section',
+  trigger: '.section2__section',
   toggleClass: { targets: '.nav__item--2', className: 'active' },
 })
 ScrollTrigger.create({
-  trigger: '.section6__section',
+  trigger: '.section4__section',
   toggleClass: { targets: '.nav__item--3', className: 'active' },
 })
 
@@ -613,13 +654,13 @@ ScrollTrigger.create({
   toggleClass: { targets: '.nav__item--5', className: 'active' },
   // markers: true
 })
-// ScrollTrigger.create({
-//   trigger: '#solutions--2',
-//   endTrigger: '#solutions--2-1',
-//   end: 'top 20%',
-//   toggleClass: { targets: '.nav__item--6', className: 'active' },
-//   // markers: true
-// })
+ScrollTrigger.create({
+  trigger: '#solutions--2',
+  endTrigger: '#solutions--2-1',
+  end: 'top 20%',
+  toggleClass: { targets: '.nav__item--6', className: 'active' },
+  // markers: true
+})
 
 // Solutions Sub-items
 ScrollTrigger.create({
@@ -636,39 +677,39 @@ ScrollTrigger.create({
 })
 ScrollTrigger.create({
   trigger: '#solutions--1-3',
-  endTrigger: '#solutions--2-4',
+  endTrigger: '#solutions--1-4',
   end: 'top 20%',
   toggleClass: { targets: '.nav__sub-item-3', className: 'active' },
 })
 ScrollTrigger.create({
-  trigger: '#solutions--2-4',
-  endTrigger: '.contact__section',
+  trigger: '#solutions--1-4',
+  endTrigger: '#solutions--2',
   end: 'top 20%',
   toggleClass: { targets: '.nav__sub-item-4', className: 'active' },
 })
-// ScrollTrigger.create({
-//   trigger: '#solutions--2-1',
-//   endTrigger: '#solutions--2-2',
-//   end: 'top 20%',
-//   toggleClass: { targets: '.nav__sub-item-5', className: 'active' },
-// })
-// ScrollTrigger.create({
-//   trigger: '#solutions--2-2',
-//   endTrigger: '#solutions--2-3',
-//   end: 'top 20%',
-//   toggleClass: { targets: '.nav__sub-item-6', className: 'active' },
-// })
-// ScrollTrigger.create({
-//   trigger: '#solutions--2-3',
-//   endTrigger: '#solutions--2-4',
-//   end: 'top 20%',
-//   toggleClass: { targets: '.nav__sub-item-7', className: 'active' },
-// })
-// ScrollTrigger.create({
-//   trigger: '#solutions--2-4',
-//   endTrigger: '.contact__section',
-//   toggleClass: { targets: '.nav__sub-item-8', className: 'active' },
-// })
+ScrollTrigger.create({
+  trigger: '#solutions--2-1',
+  endTrigger: '#solutions--2-2',
+  end: 'top 20%',
+  toggleClass: { targets: '.nav__sub-item-5', className: 'active' },
+})
+ScrollTrigger.create({
+  trigger: '#solutions--2-2',
+  endTrigger: '#solutions--2-3',
+  end: 'top 20%',
+  toggleClass: { targets: '.nav__sub-item-6', className: 'active' },
+})
+ScrollTrigger.create({
+  trigger: '#solutions--2-3',
+  endTrigger: '#solutions--2-4',
+  end: 'top 20%',
+  toggleClass: { targets: '.nav__sub-item-7', className: 'active' },
+})
+ScrollTrigger.create({
+  trigger: '#solutions--2-4',
+  endTrigger: '.contact__section',
+  toggleClass: { targets: '.nav__sub-item-8', className: 'active' },
+})
 
 
 // ----------------------------------------------------------------
