@@ -8,6 +8,11 @@
     align-items: flex-start;
     margin-top: 5rem;
     margin-bottom: 4.8rem;
+    &--1{
+      @include bp(825){
+        margin-top: 1.99484rem;
+      }
+    }
   }
   &__num {
     height: 12rem;
