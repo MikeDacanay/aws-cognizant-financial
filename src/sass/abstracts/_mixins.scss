@@ -43,3 +43,8 @@
   letter-spacing: 0.36px;
   color: var(--secondary);
 }
+
+
+@mixin bp($point) {
+  @media only screen and (max-width: $point+px){ @content; }           
+}
