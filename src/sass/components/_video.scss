@@ -1,23 +1,17 @@
 .video {
   &__section {
-    height: 80vh;
     position: relative;
     overflow: hidden;
     background-image: url("../../assets/images/financia-services-preview.jpg");
     background-position: bottom;
     background-size: cover;
-    @media only screen and (min-width: 1400px) {
-      height: 68.4rem;
-    }
+    height: 68.4rem;
     @media only screen and (max-width: 1024px) {
-      background-position: center;
-      height: 65vh;
+      padding-top: 0;
+      height: 86.243101rem;
     }
-    @media only screen and (max-width: 700px) {
-      height: 60vh;
-    }
-    @media only screen and (max-width: 600px) {
-      height: 40vh;
+    @media only screen and (max-width: 666px) {
+      height: 75vh;
     }
   }
 
