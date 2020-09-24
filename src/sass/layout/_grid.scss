@@ -33,4 +33,31 @@
   }
 
   // REPLICATE THIS PATTERN IF NEED BE
+  &__x{
+    max-width: $grid-width;
+    margin: 0 auto;
+    position: relative;
+    @media only screen and (max-width: 825px) {
+      max-width: 90%;
+      flex-direction: column;
+    }    
+    display: flex;
+    
+
+
+    [class^="col-"] {
+      &:not(:last-child) {
+        margin-right: $gutter-horizontal;
+      }      
+    }
+  
+    .col-1-of-2{
+      flex: 0 0 calc((100% - 4.8rem) / 2);
+    }  
+    
+    .col-1-of-2--a{
+      display: flex;
+      align-items: center;
+    }
+  }
 }
