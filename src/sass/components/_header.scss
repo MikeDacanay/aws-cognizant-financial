@@ -4,7 +4,7 @@
     background-image: url("../../assets/images/bg-top-main.svg");
     background-size: cover;
     color: #fff;
-    padding-top: 8.2rem;
+    padding-top: 13rem;
     height: 80rem;
     position: relative;
     @media only screen and (max-width: 1024px) {
@@ -16,7 +16,7 @@
     width: 34.23rem;
     height: 6.4rem;
     object-fit: contain;
-    margin-bottom: 13.4rem;
+    margin-bottom: 13.3rem;
     @media only screen and (max-width: 1024px) {
       margin-top: 9.8rem;
       margin-bottom: 9.2rem;
@@ -27,20 +27,15 @@
   }
   &__title {
     font-family: AmazonEmberLT;
-    font-size: 7.2rem;
+    font-size: 6.4em;
     font-weight: 300;
-    line-height: 1.33;
-    width: 85%;
+    line-height: 1.19;
+    width: 75%;
     color: var(--white);
-    margin-top: -2rem;
 
     @media only screen and (max-width: 1275px) {
       width: 100%;
     }
-
-    // @media only screen and (max-width: 825px) {
-    //   width: 87%;
-    // }
     
     @media only screen and (max-width: 400px) {
       font-size: 6.3rem;
